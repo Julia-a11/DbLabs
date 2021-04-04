@@ -8,7 +8,8 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "event")
+@Table(name = "event", indexes = {@Index(name = "test3", columnList = "event_type_id"),
+        @Index(name = "test4", columnList = "adress_id")})
 public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
