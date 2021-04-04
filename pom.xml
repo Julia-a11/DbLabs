@@ -43,6 +43,13 @@
             <artifactId>spring-boot-starter-aop</artifactId>
             <version>2.4.4</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/de.vandermeer/asciitable -->
+        <dependency>
+            <groupId>de.vandermeer</groupId>
+            <artifactId>asciitable</artifactId>
+            <version>0.3.2</version>
+        </dependency>
+
     </dependencies>
 
 

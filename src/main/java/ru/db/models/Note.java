@@ -8,7 +8,7 @@ import java.sql.Date;
 
 @Data
 @Entity
-@Table(name = "note")
+@Table(name = "note",indexes = {@Index(name = "test2", columnList = "person_id")})
 public class Note {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

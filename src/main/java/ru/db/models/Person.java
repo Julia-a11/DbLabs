@@ -1,13 +1,15 @@
 package ru.db.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Data
 @Entity
-@Table(name = "person")
+@Table(name = "person",indexes = {@Index(name = "test", columnList = "login")})
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,11 +20,6 @@ public class Person {
     private String password;
     @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
     private List<Note> noteList;
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "person_event",
-            joinColumns = {@JoinColumn(name = "person_id")},
-            inverseJoinColumns = {@JoinColumn(name = "event_id")}
-    )
+    @ManyToMany(mappedBy = "personList", fetch = FetchType.EAGER)
     private List<Event> eventList;
 }

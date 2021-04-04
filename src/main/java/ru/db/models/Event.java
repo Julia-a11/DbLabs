@@ -15,7 +15,12 @@ public class Event {
     private int id;
     private String name;
     private Date date;
-    @ManyToMany(mappedBy = "eventList")
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "person_event",
+            joinColumns = {@JoinColumn(name = "event_id")},
+            inverseJoinColumns = {@JoinColumn(name = "person_id")}
+    )
     private List<Person> personList;
     @ManyToOne
     @JoinColumn(name = "event_type_id")
